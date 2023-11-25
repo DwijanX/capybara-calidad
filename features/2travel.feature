@@ -5,7 +5,7 @@ Feature: Mercury Tours Verify Registration
 
 
 
-Scenario: Register a user on site        
+Scenario: Register a user on site
 	Given I am on the Mercury Tours homepage
 	And I click the "Register" link
 	When I enter the required fields as show below
@@ -13,26 +13,26 @@ Scenario: Register a user on site
     |Last Name: 	    | Perez              |
     |Phone: 	        | 1234-567-12        |
     |Email: 	        | pepe@pepazo.com    |
-    |Address:           | Av. America #123   |	
+    |Address:           | Av. America #123   |
     |City: 	            | Cochabamba         |
-    |State/Province:    | Cochabamba         | 	
+    |State/Province:    | Cochabamba         |
     |Postal Code: 	    | 9897               |
     |Country: 	        | BOLIVIA            |
     |User Name: 	    | Pepazo             |
-    |Password:          | ILoveQA            | 
+    |Password:          | ILoveQA            |
     |Confirm Password:  | ILoveQA            |
 	And send my registration form
 	Then the confirmation screen is show
 	And my user name is "Pepazo"
 
 
-Scenario: Find a flight with a register user
+Scenario: Login with a register user
     Given I am on the Mercury Tours homepage
     And I enter my user and password
     When I press the "Sign-In" button
     Then the login successfully message is displayed
 
-Scenario: Register a user on site        
+Scenario: Register a user on site
 	Given I am on the Mercury Tours homepage
 	And I click the "SIGN-ON" link
 	And I enter my user and password
@@ -47,3 +47,12 @@ Scenario: Find Special Item with Price
     Given I am on the Mercury Tours homepage
     And I should be able to see the specials table
     Then I should be able to check the tour and price for the first row
+
+@new
+Scenario: Find a flight with a registered user
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I press the "findFlights" button
+    Then the result message is displayed

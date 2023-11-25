@@ -10,7 +10,7 @@ end
 
 #And Press the "Submit" button
 When('Press the {string} button') do |buttonName|
-  click_button(buttonName) 
+  click_button(buttonName)
 end
 
 #Then error "Email ID must not be blank" is show
@@ -35,7 +35,7 @@ Then(/^I should see the following table:$/) do |table|
   #xpath_base_name1 = './tbody/tr[%i]/td[2]'
   data.each_pair do |key, value|
      expect(path.find(:xpath, xpath_base_name % [counter])).to have_content(key)
-     counter += 1 
+     counter += 1
   end
 end
 
@@ -43,4 +43,3 @@ end
 Then(/^I should see mngr(\d+) id$/) do |arg1|
   purchasedLabel = find(:xpath, '/html/body/table/tbody/tr[4]/td[2]', :text => /\Amngr\d\d\d\d\d\d\z/)
 end
-    

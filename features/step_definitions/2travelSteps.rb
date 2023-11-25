@@ -50,9 +50,9 @@ When(/^send my registration form$/) do
 end
 
 Then(/^the confirmation screen is show$/) do
-  greeting = "Dear"+" "+@name+" "+@lastName 	
+  greeting = "Dear"+" "+@name+" "+@lastName
   expect(page).to have_content(greeting)
-  
+
 end
 
 Then(/^my user name is "([^"]*)"$/) do |userName|
@@ -63,9 +63,9 @@ Then(/^my user name is "([^"]*)"$/) do |userName|
   userNameLabel1 = find(:css, 'body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td > p:nth-child(3) > font > b').text
   userNameLabel2 = find(:xpath,'/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[3]/font/b').text
   if (userNameLabel1 == userNameLabel2) & (labelText == userNameLabel1) & (labelText == userNameLabel2)
-    puts "Validation for user name: Passed"    
+    puts "Validation for user name: Passed"
   else
-    raise "Validation for user name: Failed"    
+    raise "Validation for user name: Failed"
     puts "Expected: "+labelText
     puts "Actual:"+userNameLabel1
   end
@@ -79,7 +79,7 @@ Given(/^I enter my user and password$/) do
   fill_in 'password', :with => ENV['PSW']
 end
 
-Given(/I should be able to see the specials table/) do 
+Given(/I should be able to see the specials table/) do
   find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]").value
 end
 
@@ -108,4 +108,22 @@ end
 Then('I should see the specials table displayed') do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]'
   find(:xpath,xpath).value
+end
+
+
+
+
+When(/^I press the Flights button$/) do
+  find_link("Flights").click
+end
+
+When(/^I press the "findFlights" button$/) do
+    # Find the button using the provided CSS selector and click on it
+    find(:css, 'body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(5) > td > form > table > tbody > tr:nth-child(14) > td > input[type=image]').click
+  end
+
+
+Then(/^the result message is displayed$/) do
+  # Implement the step to verify the result message
+  expect(page).to have_content("        After flight finder - No Seats Avaialble  ")
 end
