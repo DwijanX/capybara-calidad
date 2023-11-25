@@ -131,3 +131,14 @@ Then(/^the result message is displayed$/) do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/a/img'
   find(:xpath,xpath).value
 end
+
+
+When(/^I press the "BACK TO HOME" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/a/img'
+  find(:xpath,xpath).click
+end
+
+Then(/^the Home screen is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/index.php'
+  expect(page).to have_current_path(expected_url)
+end

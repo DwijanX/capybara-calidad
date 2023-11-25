@@ -48,7 +48,7 @@ Scenario: Find Special Item with Price
     And I should be able to see the specials table
     Then I should be able to check the tour and price for the first row
 
-@new
+@flights
 Scenario: Find a flight with a registered user
     Given I am on the Mercury Tours homepage
     And I enter my user and password
@@ -56,3 +56,14 @@ Scenario: Find a flight with a registered user
     When I press the "Flights" button
     When I press the "findFlights" button
     Then the result message is displayed
+
+
+@flights
+Scenario: Find a flight with a registered user and go back home
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I press the "findFlights" button
+    When I press the "BACK TO HOME" button
+    Then the Home screen is shown
