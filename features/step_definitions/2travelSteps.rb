@@ -79,12 +79,20 @@ Given(/^I enter my user and password$/) do
   fill_in 'password', :with => ENV['PSW']
 end
 
+Given(/I should be able to see the specials table/) do 
+  find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]").value
+end
+
 When(/^I press the "([^"]*)" button$/) do |arg1|
   xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[4]/td[2]/div/input'
   find(:xpath, xpath).click
 end
 
-
+Then('I should be able to check the tour and price for the first row') do
+  table=find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]")
+  table.find(:xpath,"./td[1]/font").value
+  table.find(:xpath,"./td[2]/div/font/b").value
+end
 Then(/^the login successfully message is displayed$/) do
     expect(page).to have_content("Login Successfully")
     puts "ONLY FOR TEST  PURPOSES"
@@ -96,4 +104,8 @@ end
 When(/^I press the Submit button$/) do
   xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/input'
   find(:xpath, xpath).click
+end
+Then('I should see the specials table displayed') do
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]'
+  find(:xpath,xpath).value
 end

@@ -4,6 +4,7 @@ Feature: Mercury Tours Verify Registration
   I want to test the shoppping online options
 
 
+
 Scenario: Register a user on site        
 	Given I am on the Mercury Tours homepage
 	And I click the "Register" link
@@ -37,3 +38,12 @@ Scenario: Register a user on site
 	And I enter my user and password
 	When I press the Submit button
     Then the login successfully message is displayed
+
+Scenario: Check Specials Table on Homepage
+    Given I am on the Mercury Tours homepage
+    Then I should see the specials table displayed
+
+Scenario: Find Special Item with Price
+    Given I am on the Mercury Tours homepage
+    And I should be able to see the specials table
+    Then I should be able to check the tour and price for the first row
