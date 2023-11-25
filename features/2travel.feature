@@ -69,15 +69,17 @@ Scenario: Find a flight with a registered user and go back home
     Then the Home screen is shown
 
 
-@links
-Scenario: Go to support page
+Scenario: Find The date
     Given I am on the Mercury Tours homepage
-    And I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "SUPPORT" button
-    Then the Support page is shown
+    Then I should be able to see the date 
 
+ 
+Scenario: Find the main page Banner
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the page banner
 
-
-
-
+@new 
+Scenario: Check extra links of the page
+    Given I am on the Mercury Tours homepage
+	And I click the "Salon Travel" link
+    Then I should be able to see trip advisor page
