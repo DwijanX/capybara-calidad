@@ -67,3 +67,23 @@ Scenario: Find a flight with a registered user and go back home
     When I press the "findFlights" button
     When I press the "BACK TO HOME" button
     Then the Home screen is shown
+
+
+@links
+Scenario: Go to support page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "SUPPORT" button
+    Then the Support page is shown
+
+@links
+Scenario: Go to contact page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "SUPPORT" button
+    Then the Contact page is shown
+
+
+

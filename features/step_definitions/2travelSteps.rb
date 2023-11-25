@@ -8,6 +8,17 @@ Given(/^I click the "([^"]*)" link$/) do |linkText|
   click_link(linkText)
 end
 
+
+Given(/^I enter my user and password$/) do
+  fill_in 'userName', :with => ENV['USER']
+  fill_in 'password', :with => ENV['PSW']
+end
+
+Given(/I should be able to see the specials table/) do
+  find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]").value
+end
+
+
 When(/^I enter the required fields as show below$/) do |table|
   data = table.rows_hash
   data.each_pair do |key, value|
@@ -49,6 +60,48 @@ When(/^send my registration form$/) do
   find(:xpath, xpath_base).click
 end
 
+
+When(/^I press the "Flights" button$/) do
+  # Find the anchor element with the specified attributes and click on it
+  find(:css, 'a[href="reservation.php"][style="margin-left: 5px;color: #0000ee;text-decoration: underline;"]').click
+end
+
+
+When(/^I press the "findFlights" button$/) do
+    # Find the button using the provided CSS selector and click on it
+    find(:css, 'body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(5) > td > form > table > tbody > tr:nth-child(14) > td > input[type=image]').click
+  end
+
+
+
+When(/^I press the Submit button$/) do
+  xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/input'
+  find(:xpath, xpath).click
+end
+
+
+When(/^I press the "Sign-In" button$/) do
+  xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[4]/td[2]/div/input'
+  find(:xpath, xpath).click
+end
+
+When(/^I press the "BACK TO HOME" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/a/img'
+  find(:xpath,xpath).click
+end
+
+When(/^I press the "SUPPORT" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]/a'
+  find(:xpath,xpath).click
+end
+
+When(/^I press the "CONTACT" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[4]/a'
+  find(:xpath,xpath).click
+end
+
+
+
 Then(/^the confirmation screen is show$/) do
   greeting = "Dear"+" "+@name+" "+@lastName
   expect(page).to have_content(greeting)
@@ -74,25 +127,14 @@ Then(/^my user name is "([^"]*)"$/) do |userName|
   puts find(:xpath,'/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[3]/td/p[3]/font/b').text
 end
 
-Given(/^I enter my user and password$/) do
-  fill_in 'userName', :with => ENV['USER']
-  fill_in 'password', :with => ENV['PSW']
-end
 
-Given(/I should be able to see the specials table/) do
-  find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]").value
-end
-
-When(/^I press the "Sign-In" button$/) do
-  xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[4]/td[2]/div/input'
-  find(:xpath, xpath).click
-end
 
 Then('I should be able to check the tour and price for the first row') do
   table=find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]")
   table.find(:xpath,"./td[1]/font").value
   table.find(:xpath,"./td[2]/div/font/b").value
 end
+
 Then(/^the login successfully message is displayed$/) do
     expect(page).to have_content("Login Successfully")
     puts "ONLY FOR TEST  PURPOSES"
@@ -101,10 +143,7 @@ Then(/^the login successfully message is displayed$/) do
 end
 
 
-When(/^I press the Submit button$/) do
-  xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/input'
-  find(:xpath, xpath).click
-end
+
 Then('I should see the specials table displayed') do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]'
   find(:xpath,xpath).value
@@ -113,16 +152,7 @@ end
 
 
 
-When(/^I press the "Flights" button$/) do
-  # Find the anchor element with the specified attributes and click on it
-  find(:css, 'a[href="reservation.php"][style="margin-left: 5px;color: #0000ee;text-decoration: underline;"]').click
-end
 
-
-When(/^I press the "findFlights" button$/) do
-    # Find the button using the provided CSS selector and click on it
-    find(:css, 'body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(5) > td > form > table > tbody > tr:nth-child(14) > td > input[type=image]').click
-  end
 
 
 Then(/^the result message is displayed$/) do
@@ -133,12 +163,20 @@ Then(/^the result message is displayed$/) do
 end
 
 
-When(/^I press the "BACK TO HOME" button$/) do
-  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/a/img'
-  find(:xpath,xpath).click
-end
 
 Then(/^the Home screen is shown$/) do
   expected_url = 'https://demo.guru99.com/test/newtours/index.php'
   expect(page).to have_current_path(expected_url)
+end
+
+Then(/^the Support page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+end
+
+Then(/^the Contact page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
+
 end
