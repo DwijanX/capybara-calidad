@@ -83,7 +83,7 @@ Given(/I should be able to see the specials table/) do
   find(:xpath,"/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[1]/tbody/tr[3]/td/table/tbody/tr[1]").value
 end
 
-When(/^I press the "([^"]*)" button$/) do |arg1|
+When(/^I press the "Sign-In" button$/) do
   xpath = '/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[4]/td[2]/div/input'
   find(:xpath, xpath).click
 end
@@ -113,9 +113,11 @@ end
 
 
 
-When(/^I press the Flights button$/) do
-  find_link("Flights").click
+When(/^I press the "Flights" button$/) do
+  # Find the anchor element with the specified attributes and click on it
+  find(:css, 'a[href="reservation.php"][style="margin-left: 5px;color: #0000ee;text-decoration: underline;"]').click
 end
+
 
 When(/^I press the "findFlights" button$/) do
     # Find the button using the provided CSS selector and click on it
@@ -125,5 +127,7 @@ When(/^I press the "findFlights" button$/) do
 
 Then(/^the result message is displayed$/) do
   # Implement the step to verify the result message
-  expect(page).to have_content("        After flight finder - No Seats Avaialble  ")
+  expect(page).to have_content("After flight finder - No Seats Avaialble")
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/a/img'
+  find(:xpath,xpath).value
 end
