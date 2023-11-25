@@ -93,3 +93,11 @@ Scenario: Go to support page
     When I press the "SUPPORT" button
     Then the support page is shown
 
+@links
+Scenario: Go to contact page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "CONTACT" button
+    Then the contact page is shown
+

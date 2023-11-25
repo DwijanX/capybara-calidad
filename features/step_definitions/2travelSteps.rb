@@ -115,6 +115,10 @@ When(/^I press the "SUPPORT" button$/) do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]'
   find(:xpath,xpath).click
   end
+When(/^I press the "CONTACT" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[4]/a'
+  find(:xpath,xpath).click
+  end
 
 Then(/^the result message is displayed$/) do
 # Implement the step to verify the result message
@@ -160,4 +164,11 @@ end
 Then(/^the support page is shown$/) do
   expected_url = 'https://demo.guru99.com/test/newtours/support.php'
   expect(page).to have_current_path(expected_url)
+end
+
+Then(/^the contact page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
+
 end
