@@ -67,3 +67,8 @@ Scenario: Find a flight with a registered user and go back home
     When I press the "findFlights" button
     When I press the "BACK TO HOME" button
     Then the Home screen is shown
+
+@new    
+Scenario: Find The date
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the date 
