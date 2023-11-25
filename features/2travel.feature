@@ -73,7 +73,13 @@ Scenario: Find The date
     Given I am on the Mercury Tours homepage
     Then I should be able to see the date 
 
-@new 
+ 
 Scenario: Find the main page Banner
     Given I am on the Mercury Tours homepage
     Then I should be able to see the page banner
+
+@new 
+Scenario: Check extra links of the page
+    Given I am on the Mercury Tours homepage
+	And I click the "Salon Travel" link
+    Then I should be able to see trip advisor page

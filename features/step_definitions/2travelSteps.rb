@@ -145,3 +145,8 @@ Then('I should be able to see the page banner') do
   xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[1]/td/img"
   find(:xpath,xpath).value
 end
+
+Then('I should be able to see trip advisor page') do
+  expected_url = 'https://www.tripadvisor.in/'
+  expect(page).to have_current_path(expected_url)
+end
