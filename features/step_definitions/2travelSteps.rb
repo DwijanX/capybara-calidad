@@ -98,12 +98,12 @@ end
 
 When(/^I press the "Flights" button$/) do
 # Find the anchor element with the specified attributes and click on it
-find(:css, 'a[href="reservation.php"][style="margin-left: 5px;color: #0000ee;text-decoration: underline;"]').click
+find(:xpath, '/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]/a').click
 end
 
 When(/^I press the "findFlights" button$/) do
  # Find the button using the provided CSS selector and click on it
- find(:css, 'body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(5) > td > form > table > tbody > tr:nth-child(14) > td > input[type=image]').click
+ find(:xpath, '/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[14]/td/input').click
 end
 When(/^I press the "BACK TO HOME" button$/) do
 xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/a/img'
