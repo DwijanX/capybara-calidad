@@ -141,3 +141,7 @@ Then('I should be able to see the date') do
   dateText= "Jul 6, 2017"
   expect(page).to have_content(dateText)
 end
+Then('I should be able to see the page banner') do
+  xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[1]/td/img"
+  find(:xpath,xpath).value
+end
