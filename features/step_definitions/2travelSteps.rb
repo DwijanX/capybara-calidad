@@ -155,6 +155,20 @@ Then('I should be able to see the page banner') do
 xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[1]/td/img"
 find(:xpath,xpath).value
 end
+Then('I should be able to see the Featured Destination') do
+xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/p[1]/img"
+find(:xpath,xpath).value
+end
+
+Then('I should be able to see the HTML version image') do
+xpath= "/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/p[2]/img"
+find(:xpath,xpath).value
+end
+
+Then('I should be able to see the rent a car image') do
+xpath= "/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/p[3]/img"
+find(:xpath,xpath).value
+end
 
 Then('I should be able to see trip advisor page') do
 expected_url = 'https://www.tripadvisor.in/'

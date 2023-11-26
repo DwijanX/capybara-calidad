@@ -78,6 +78,20 @@ Scenario: Find the main page Banner
     Given I am on the Mercury Tours homepage
     Then I should be able to see the page banner
 
+Scenario: Find the main Fetured Destination Image
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the Featured Destination
+
+
+Scenario: Find the HTML version image
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the HTML version image
+
+Scenario: Find the Rent a car image
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the rent a car image
+
+
 @new 
 Scenario: Check extra links of the page
     Given I am on the Mercury Tours homepage
