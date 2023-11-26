@@ -97,7 +97,25 @@ Scenario: Go to contact page
     When I press the "CONTACT" button
     Then the contact page is shown
 
+@flights
+Scenario: Find a flight with a registered user
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I press the "findFlights" button
+    Then the result message is displayed
 
+
+@flights
+Scenario: Find a flight with a registered user and go back home
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I press the "findFlights" button
+    When I press the "BACK TO HOME" button
+    Then the Home screen is shown
 
 @others
 Scenario:  Go to Car Rentals page
@@ -132,22 +150,3 @@ Scenario:  Go to Vacations page
     When I press the "Sign-In" button
     When I press the "Vacations" button
     Then the Vacations page is shown
-@flights
-Scenario: Find a flight with a registered user
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
-    When I press the "findFlights" button
-    Then the result message is displayed
-
-
-@flights
-Scenario: Find a flight with a registered user and go back home
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
-    When I press the "findFlights" button
-    When I press the "BACK TO HOME" button
-    Then the Home screen is shown

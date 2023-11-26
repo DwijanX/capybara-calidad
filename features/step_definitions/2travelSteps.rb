@@ -97,12 +97,10 @@ end
 
 
 When(/^I press the "Flights" button$/) do
-# Find the anchor element with the specified attributes and click on it
 find(:xpath, '/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td[2]/a').click
 end
 
 When(/^I press the "findFlights" button$/) do
- # Find the button using the provided CSS selector and click on it
  find(:xpath, '/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[14]/td/input').click
 end
 When(/^I press the "BACK TO HOME" button$/) do
@@ -112,7 +110,7 @@ end
 
 
 When(/^I press the "SUPPORT" button$/) do
-  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]'
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]/a'
   find(:xpath,xpath).click
   end
 
@@ -120,6 +118,7 @@ When(/^I press the "CONTACT" button$/) do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[4]/a'
   find(:xpath,xpath).click
   end
+
 
 
 When(/^I press the "Car Rentals" button$/) do
@@ -142,11 +141,6 @@ When(/^I press the "Vacations" button$/) do
   xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[7]/td[2]/a'
   find(:xpath,xpath).click
   end
-
-
-
-
-
 
 Then(/^the result message is displayed$/) do
 # Implement the step to verify the result message
@@ -214,6 +208,7 @@ Then(/^the contact page is shown$/) do
   expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
 
 end
+
 
 
 Then(/^the Car Rentals page is shown$/) do
