@@ -39,44 +39,40 @@ Scenario: Register a user on site
 	When I press the Submit button
     Then the login successfully message is displayed
 
+# desde aqui son pruebas adicionales al del ejemplo base
+@home
 Scenario: Check Specials Table on Homepage
     Given I am on the Mercury Tours homepage
     Then I should see the specials table displayed
 
+@home
 Scenario: Find Special Item with Price
     Given I am on the Mercury Tours homepage
     And I should be able to see the specials table
     Then I should be able to check the tour and price for the first row
 
-@flights
-Scenario: Find a flight with a registered user
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
-    When I press the "findFlights" button
-    Then the result message is displayed
-
-
-@flights
-Scenario: Find a flight with a registered user and go back home
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
-    When I press the "findFlights" button
-    When I press the "BACK TO HOME" button
-    Then the Home screen is shown
-
-
+@home
 Scenario: Find The date
     Given I am on the Mercury Tours homepage
     Then I should be able to see the date 
 
- 
 Scenario: Find the main page Banner
     Given I am on the Mercury Tours homepage
     Then I should be able to see the page banner
+
+Scenario: Find the main Fetured Destination Image
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the Featured Destination
+
+
+Scenario: Find the HTML version image
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the HTML version image
+
+Scenario: Find the Rent a car image
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the rent a car image
+
 
 @new 
 Scenario: Check extra links of the page
@@ -136,3 +132,22 @@ Scenario:  Go to Vacations page
     When I press the "Sign-In" button
     When I press the "Vacations" button
     Then the Vacations page is shown
+@flights
+Scenario: Find a flight with a registered user
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I press the "findFlights" button
+    Then the result message is displayed
+
+
+@flights
+Scenario: Find a flight with a registered user and go back home
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I press the "findFlights" button
+    When I press the "BACK TO HOME" button
+    Then the Home screen is shown
