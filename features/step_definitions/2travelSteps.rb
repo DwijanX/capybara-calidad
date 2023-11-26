@@ -115,10 +115,38 @@ When(/^I press the "SUPPORT" button$/) do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[3]'
   find(:xpath,xpath).click
   end
+
 When(/^I press the "CONTACT" button$/) do
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[4]/a'
   find(:xpath,xpath).click
   end
+
+
+When(/^I press the "Car Rentals" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[4]/td[2]/font/a'
+  find(:xpath,xpath).click
+  end
+
+
+When(/^I press the "Destinations" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[6]/td[2]/a'
+  find(:xpath,xpath).click
+  end
+
+When(/^I press the "Hotels" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[3]/td[2]/a'
+  find(:xpath,xpath).click
+  end
+
+When(/^I press the "Vacations" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[7]/td[2]/a'
+  find(:xpath,xpath).click
+  end
+
+
+
+
+
 
 Then(/^the result message is displayed$/) do
 # Implement the step to verify the result message
@@ -167,6 +195,35 @@ Then(/^the support page is shown$/) do
 end
 
 Then(/^the contact page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
+
+end
+
+
+Then(/^the Car Rentals page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
+
+end
+
+Then(/^the Destinations page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
+
+end
+
+Then(/^the Hotels page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+  expect(page).to have_current_path(expected_url)
+  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
+
+end
+
+Then(/^the Vacations page is shown$/) do
   expected_url = 'https://demo.guru99.com/test/newtours/support.php'
   expect(page).to have_current_path(expected_url)
   expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")

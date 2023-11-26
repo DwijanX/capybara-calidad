@@ -101,3 +101,38 @@ Scenario: Go to contact page
     When I press the "CONTACT" button
     Then the contact page is shown
 
+
+
+@others
+Scenario:  Go to Car Rentals page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Car Rentals" button
+    Then the Car Rentals page is shown
+
+@others
+Scenario:  Go to Destinations page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Destinations" button
+    Then the Destinations page is shown
+
+
+@others
+Scenario:  Go to Hotels page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Hotels" button
+    Then the Hotels page is shown
+
+
+@others
+Scenario:  Go to Vacations page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Vacations" button
+    Then the Vacations page is shown
