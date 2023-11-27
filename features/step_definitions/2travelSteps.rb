@@ -274,4 +274,12 @@ Then('Then I should be redirected to the Business Travel page') do
   expect(page).to have_current_path(expected_url)
   end
 
+  When(/^I press the "Cruises" button$/) do
+    xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[5]/td[2]/a'
+    find(:xpath,xpath).click
+    end
 
+  Then(/^the Cruises page is shown$/) do
+    expected_url = 'https://demo.guru99.com/test/newtours/index.php'
+    expect(page).to have_current_path(expected_url)
+  end

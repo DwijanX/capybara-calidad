@@ -185,3 +185,12 @@ Scenario: Navigate to the Business Travel @ About.com link
     Given I am on the Mercury Tours homepage
     And I click the "Business Travel @ About.com" link
     Then I should be redirected to the Business Travel page
+
+
+@nico
+Scenario:  Go to Cruises page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Cruises" button
+    Then the Cruises page is shown
