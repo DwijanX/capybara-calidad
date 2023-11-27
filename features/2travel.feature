@@ -194,3 +194,18 @@ Scenario:  Go to Cruises page
     When I press the "Sign-In" button
     When I press the "Cruises" button
     Then the Cruises page is shown
+
+
+@nico
+Scenario: Press All Buttons on Flight Details Page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I select "3" passengers
+    When I select "London" as the departing location
+    When I select "New York" as the returning location
+    When I choose "Business class" as the service class
+    When I select "Unified Airlines" as the airline preference
+    When I press the "findFlights" button
+    Then the result message is displayed

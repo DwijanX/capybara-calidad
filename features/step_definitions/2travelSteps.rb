@@ -240,7 +240,6 @@ Then(/^the Vacations page is shown$/) do
 end
 
 
-
 Then(/^I should be able to see the image under the Destination subtitle$/) do
   xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[1]/img"
   find(:xpath,xpath).value
@@ -274,12 +273,37 @@ Then('Then I should be redirected to the Business Travel page') do
   expect(page).to have_current_path(expected_url)
   end
 
-  When(/^I press the "Cruises" button$/) do
-    xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[5]/td[2]/a'
-    find(:xpath,xpath).click
-    end
-
-  Then(/^the Cruises page is shown$/) do
-    expected_url = 'https://demo.guru99.com/test/newtours/index.php'
-    expect(page).to have_current_path(expected_url)
+When(/^I press the "Cruises" button$/) do
+  xpath='/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[5]/td[2]/a'
+  find(:xpath,xpath).click
   end
+
+Then(/^the Cruises page is shown$/) do
+  expected_url = 'https://demo.guru99.com/test/newtours/index.php'
+  expect(page).to have_current_path(expected_url)
+end
+
+When(/^I select "(\d+)" passengers$/) do |passenger_count|
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[3]/td[2]/b/select'
+  find(:xpath, 'XPath_Para_Pasajeros').select(passenger_count)
+end
+
+When(/^I select "(.*?)" as the departing location$/) do |departing_location|
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td[2]/select'
+  find(:xpath, 'XPath_Para_Ubicacion_Partida').select(departing_location)
+end
+
+When(/^I select "(.*?)" as the returning location$/) do |returning_location|
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[6]/td[2]/select'
+  find(:xpath, 'XPath_Para_Ubicacion_Retorno').select(returning_location)
+end
+
+When(/^I choose "(.*?)" as the service class$/) do |service_class|
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[9]/td[2]/font/font/input[1]'
+  find(:xpath, 'XPath_Para_Servicio_Clase', text: service_class).click
+end
+
+When(/^I select "(.*?)" as the airline preference$/) do |airline_preference|
+  xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[10]/td[2]/select'
+  find(:xpath, 'XPath_Para_Preferencia_Aerolinea').select(airline_preference)
+end
