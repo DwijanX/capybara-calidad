@@ -150,3 +150,38 @@ Scenario:  Go to Vacations page
     When I press the "Sign-In" button
     When I press the "Vacations" button
     Then the Vacations page is shown
+
+
+
+
+
+@nico
+Scenario: Verify image under the Destination subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Destination subtitle
+
+@nico
+Scenario: Verify image under the Vacation subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Vacation subtitle
+
+@nico
+Scenario: Verify image under the Register subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Register subtitle
+
+@nico
+Scenario: Navigate to the Business Travel @ About.com link
+    Given I am on the Mercury Tours homepage
+    When I click the "Business Travel @ About.com" link
+    Then I should be redirected to the Business Travel page
+
+@nico
+Scenario: Verify image under the Tour Tips subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Tour Tips subtitle
+
+@nico
+Scenario: Verify text under the Tour Tips subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the text under the Tour Tips subtitle
