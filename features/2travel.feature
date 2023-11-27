@@ -171,12 +171,6 @@ Scenario: Verify image under the Register subtitle
     Then I should be able to see the image under the Register subtitle
 
 @nico
-Scenario: Navigate to the Business Travel @ About.com link
-    Given I am on the Mercury Tours homepage
-    When I click the "Business Travel @ About.com" link
-    Then I should be redirected to the Business Travel page
-
-@nico
 Scenario: Verify image under the Tour Tips subtitle
     Given I am on the Mercury Tours homepage
     Then I should be able to see the image under the Tour Tips subtitle
@@ -185,3 +179,9 @@ Scenario: Verify image under the Tour Tips subtitle
 Scenario: Verify text under the Tour Tips subtitle
     Given I am on the Mercury Tours homepage
     Then I should be able to see the text under the Tour Tips subtitle
+
+@nico
+Scenario: Navigate to the Business Travel @ About.com link
+    Given I am on the Mercury Tours homepage
+    And I click the "Business Travel @ About.com" link
+    Then I should be redirected to the Business Travel page
