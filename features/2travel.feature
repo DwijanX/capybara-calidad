@@ -4,7 +4,7 @@ Feature: Mercury Tours Verify Registration
   I want to test the shoppping online options
 
 
-
+@login
 Scenario: Register a user on site
 	Given I am on the Mercury Tours homepage
 	And I click the "Register" link
@@ -25,13 +25,14 @@ Scenario: Register a user on site
 	Then the confirmation screen is show
 	And my user name is "Pepazo"
 
-
+@login
 Scenario: Login with a register user
     Given I am on the Mercury Tours homepage
     And I enter my user and password
     When I press the "Sign-In" button
     Then the login successfully message is displayed
 
+@login
 Scenario: Register a user on site
 	Given I am on the Mercury Tours homepage
 	And I click the "SIGN-ON" link
@@ -56,30 +57,62 @@ Scenario: Find The date
     Given I am on the Mercury Tours homepage
     Then I should be able to see the date 
 
+@home
 Scenario: Find the main page Banner
     Given I am on the Mercury Tours homepage
     Then I should be able to see the page banner
 
+@home
 Scenario: Find the main Fetured Destination Image
     Given I am on the Mercury Tours homepage
     Then I should be able to see the Featured Destination
 
-
+@home
 Scenario: Find the HTML version image
     Given I am on the Mercury Tours homepage
     Then I should be able to see the HTML version image
 
+@home
 Scenario: Find the Rent a car image
     Given I am on the Mercury Tours homepage
     Then I should be able to see the rent a car image
 
-
-@new 
+@home 
 Scenario: Check extra links of the page
     Given I am on the Mercury Tours homepage
 	And I click the "Salon Travel" link
     Then I should be able to see trip advisor page
 
+@home
+Scenario: Verify image under the Destination subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Destination subtitle
+
+@home
+Scenario: Verify image under the Vacation subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Vacation subtitle
+
+@home
+Scenario: Verify image under the Register subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Register subtitle
+
+@home
+Scenario: Verify image under the Tour Tips subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the image under the Tour Tips subtitle
+
+@home
+Scenario: Verify text under the Tour Tips subtitle
+    Given I am on the Mercury Tours homepage
+    Then I should be able to see the text under the Tour Tips subtitle
+
+@home
+Scenario: Navigate to the Business Travel @ About.com link
+    Given I am on the Mercury Tours homepage
+    And I click the "Business Travel @ About.com" link
+    Then I should be redirected to the Business Travel page
 
 @links
 Scenario: Go to support page
@@ -117,6 +150,20 @@ Scenario: Find a flight with a registered user and go back home
     When I press the "BACK TO HOME" button
     Then the Home screen is shown
 
+@flights
+Scenario: Press All Buttons on Flight Details Page
+    Given I am on the Mercury Tours homepage
+    And I enter my user and password
+    When I press the "Sign-In" button
+    When I press the "Flights" button
+    When I select "3" passengers
+    When I select "London" as the departing location
+    When I select "New York" as the returning location
+    When I choose "Business class" as the service class
+    When I select "Unified Airlines" as the airline preference
+    When I press the "findFlights" button
+    Then the result message is displayed
+
 @others
 Scenario:  Go to Car Rentals page
     Given I am on the Mercury Tours homepage
@@ -151,61 +198,10 @@ Scenario:  Go to Vacations page
     When I press the "Vacations" button
     Then the Vacations page is shown
 
-
-
-
-
-@nico
-Scenario: Verify image under the Destination subtitle
-    Given I am on the Mercury Tours homepage
-    Then I should be able to see the image under the Destination subtitle
-
-@nico
-Scenario: Verify image under the Vacation subtitle
-    Given I am on the Mercury Tours homepage
-    Then I should be able to see the image under the Vacation subtitle
-
-@nico
-Scenario: Verify image under the Register subtitle
-    Given I am on the Mercury Tours homepage
-    Then I should be able to see the image under the Register subtitle
-
-@nico
-Scenario: Verify image under the Tour Tips subtitle
-    Given I am on the Mercury Tours homepage
-    Then I should be able to see the image under the Tour Tips subtitle
-
-@nico
-Scenario: Verify text under the Tour Tips subtitle
-    Given I am on the Mercury Tours homepage
-    Then I should be able to see the text under the Tour Tips subtitle
-
-@nico
-Scenario: Navigate to the Business Travel @ About.com link
-    Given I am on the Mercury Tours homepage
-    And I click the "Business Travel @ About.com" link
-    Then I should be redirected to the Business Travel page
-
-
-@nico
+@others
 Scenario:  Go to Cruises page
     Given I am on the Mercury Tours homepage
     And I enter my user and password
     When I press the "Sign-In" button
     When I press the "Cruises" button
     Then the Cruises page is shown
-
-
-@nico
-Scenario: Press All Buttons on Flight Details Page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
-    When I select "3" passengers
-    When I select "London" as the departing location
-    When I select "New York" as the returning location
-    When I choose "Business class" as the service class
-    When I select "Unified Airlines" as the airline preference
-    When I press the "findFlights" button
-    Then the result message is displayed
