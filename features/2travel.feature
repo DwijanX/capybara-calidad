@@ -3,11 +3,12 @@ Feature: Mercury Tours Verify Registration
   As a registered customer
   I want to test the shoppping online options
 
+Background:
+    Given I am on the Mercury Tours homepage
 
 @login
 Scenario: Register a user on site
-	Given I am on the Mercury Tours homepage
-	And I click the "Register" link
+	Given I click the "Register" link
 	When I enter the required fields as show below
 	|First Name: 	    | Pepito             |
     |Last Name: 	    | Perez              |
@@ -27,15 +28,13 @@ Scenario: Register a user on site
 
 @login
 Scenario: Login with a register user
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     Then the login successfully message is displayed
 
 @login
 Scenario: Register a user on site
-	Given I am on the Mercury Tours homepage
-	And I click the "SIGN-ON" link
+	Given I click the "SIGN-ON" link
 	And I enter my user and password
 	When I press the Submit button
     Then the login successfully message is displayed
@@ -43,97 +42,80 @@ Scenario: Register a user on site
 # desde aqui son pruebas adicionales al del ejemplo base
 @home
 Scenario: Check Specials Table on Homepage
-    Given I am on the Mercury Tours homepage
     Then I should see the specials table displayed
 
 @home
 Scenario: Find Special Item with Price
-    Given I am on the Mercury Tours homepage
-    And I should be able to see the specials table
+    Given I should be able to see the specials table
     Then I should be able to check the tour and price for the first row
 
 @home
 Scenario: Find The date
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the date 
 
 @home
 Scenario: Find the main page Banner
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the page banner
 
 @home
 Scenario: Find the main Fetured Destination Image
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the Featured Destination
 
 @home
 Scenario: Find the HTML version image
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the HTML version image
 
 @home
 Scenario: Find the Rent a car image
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the rent a car image
 
 @home 
 Scenario: Check extra links of the page
-    Given I am on the Mercury Tours homepage
-	And I click the "Salon Travel" link
+	Given I click the "Salon Travel" link
     Then I should be able to see trip advisor page
 
 @home
 Scenario: Verify image under the Destination subtitle
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the image under the Destination subtitle
 
 @home
 Scenario: Verify image under the Vacation subtitle
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the image under the Vacation subtitle
 
 @home
 Scenario: Verify image under the Register subtitle
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the image under the Register subtitle
 
 @home
 Scenario: Verify image under the Tour Tips subtitle
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the image under the Tour Tips subtitle
 
 @home
 Scenario: Verify text under the Tour Tips subtitle
-    Given I am on the Mercury Tours homepage
     Then I should be able to see the text under the Tour Tips subtitle
 
 @home
 Scenario: Navigate to the Business Travel @ About.com link
-    Given I am on the Mercury Tours homepage
-    And I click the "Business Travel @ About.com" link
+    Given I click the "Business Travel @ About.com" link
     Then I should be redirected to the Business Travel page
 
 @links
 Scenario: Go to support page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "SUPPORT" button
     Then the support page is shown
 
 @links
 Scenario: Go to contact page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "CONTACT" button
     Then the contact page is shown
 
 @flights
 Scenario: Find a flight with a registered user
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Flights" button
     When I press the "findFlights" button
@@ -142,8 +124,7 @@ Scenario: Find a flight with a registered user
 
 @flights
 Scenario: Find a flight with a registered user and go back home
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Flights" button
     When I press the "findFlights" button
@@ -152,8 +133,7 @@ Scenario: Find a flight with a registered user and go back home
 
 @flights
 Scenario: Press All Buttons on Flight Details Page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Flights" button
     When I select "3" passengers
@@ -166,16 +146,14 @@ Scenario: Press All Buttons on Flight Details Page
 
 @others
 Scenario:  Go to Car Rentals page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Car Rentals" button
     Then the Car Rentals page is shown
 
 @others
 Scenario:  Go to Destinations page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Destinations" button
     Then the Destinations page is shown
@@ -183,8 +161,7 @@ Scenario:  Go to Destinations page
 
 @others
 Scenario:  Go to Hotels page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Hotels" button
     Then the Hotels page is shown
@@ -192,16 +169,14 @@ Scenario:  Go to Hotels page
 
 @others
 Scenario:  Go to Vacations page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Vacations" button
     Then the Vacations page is shown
 
 @others
 Scenario:  Go to Cruises page
-    Given I am on the Mercury Tours homepage
-    And I enter my user and password
+    Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Cruises" button
     Then the Cruises page is shown
