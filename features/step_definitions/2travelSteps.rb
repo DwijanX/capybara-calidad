@@ -260,6 +260,30 @@ Then(/^I should be able to see the image under the Tour Tips subtitle$/) do
   find(:xpath,xpath).value
 end
 
+Then(/^I should be able to see the text under the Destination subtitle$/) do
+  xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[2]/font"
+  element = find(:xpath, xpath)
+  
+  expected_text = "Find detailed information about your destination."
+  expect(element.text).to eq(expected_text)
+end
+
+Then(/^I should be able to see the text under the Vacation subtitle$/) do
+  xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[8]/td/table/tbody/tr/td[2]/font"
+  element = find(:xpath, xpath)
+  
+  expected_text = "Read about our featured vacation destinations."
+  expect(element.text).to eq(expected_text)
+end
+
+Then(/^I should be able to see the text under the Register subtitle$/) do
+  xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[10]/td/table/tbody/tr/td[2]/font"
+  element = find(:xpath, xpath)
+  
+  expected_text = "Register here to join Mercury Tours!"
+  expect(element.text).to eq(expected_text)
+end
+
 Then(/^I should be able to see the text under the Tour Tips subtitle$/) do
   xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[2]/tbody/tr[3]/td[2]/font"
   element = find(:xpath, xpath)
