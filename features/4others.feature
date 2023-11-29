@@ -8,14 +8,14 @@ Background:
 
 
 @others
-Scenario:  Go to Car Rentals page
+Scenario:  Click on the "Car Rentals" button on the left navigation menu
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Car Rentals" button
     Then the Car Rentals page is shown
 
 @others
-Scenario:  Go to Destinations page
+Scenario:  Click on the "Destinations" button on the left navigation menu
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Destinations" button
@@ -23,7 +23,7 @@ Scenario:  Go to Destinations page
 
 
 @others
-Scenario:  Go to Hotels page
+Scenario:  Click on the "Hotels" button on the left navigation menu
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Hotels" button
@@ -31,14 +31,14 @@ Scenario:  Go to Hotels page
 
 
 @others
-Scenario:  Go to Vacations page
+Scenario:  Click on the "Vacations" button on the left navigation menu
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Vacations" button
     Then the Vacations page is shown
 
 @others
-Scenario:  Go to Cruises page
+Scenario:  Click on the "Cruises" button on the left navigation menu
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Cruises" button

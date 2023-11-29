@@ -5,21 +5,18 @@ Feature: Mercury Tours Flight Booking Verification
     
 Background:
     Given I am on the Mercury Tours homepage
-
-@flights
-Scenario: Find a flight with a registered user and go back home
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "Flights" button
+
+@flights
+Scenario: Find a flight with a registered user and go back home
     When I press the "findFlights" button
     When I press the "BACK TO HOME" button
     Then the Home screen is shown
 
 @flights
 Scenario: Press All Buttons on Flight Details Page
-    Given I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
     When I select "3" passengers
     When I select "London" as the departing location
     When I select "New York" as the returning location
@@ -30,8 +27,5 @@ Scenario: Press All Buttons on Flight Details Page
 
 @flights
 Scenario: Find a flight with a registered user
-    Given I enter my user and password
-    When I press the "Sign-In" button
-    When I press the "Flights" button
     When I press the "findFlights" button
     Then the result message is displayed

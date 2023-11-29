@@ -1,11 +1,10 @@
-Feature: Mercury Tours Home page Validation
+Feature: Mercury Tours Homepage Validation
     In order to ensure the functionality and display of key elements on the Mercury Tours website
     As a registered customer
-    I want to verify multiple sections and features in the home page
+    I want to verify multiple sections and features on the homepage
 
 Background:
     Given I am on the Mercury Tours homepage
-
 
 @home
 Scenario: Check Specials Table on Homepage
@@ -21,25 +20,22 @@ Scenario: Find Jul 6, 2017 date on top right of the homepage
     Then I should be able to see the date 
 
 @home
-Scenario: Find the "one cool summer in Aruba" main page Banner
+Scenario: Find the "One Cool Summer in Aruba" Banner and Featured Image
     Then I should be able to see the page banner
-
-@home
-Scenario: Find the main Fetured Destination "Aruba" Image
     Then I should be able to see the Featured Destination
 
 @home
-Scenario: see the HTML logo as the webpage version image
+Scenario: See the HTML logo as the webpage version image
     Then I should be able to see the HTML version image
 
 @home
-Scenario: Find the Rent a car advertising on the left of the homepage
+Scenario: Find the Rent a Car advertising on the left of the homepage
     Then I should be able to see the rent a car image
 
 @home 
 Scenario: Check reference link "Salon Travel"
-	Given I click the "Salon Travel" link
-    Then I should be able to see trip advisor page
+    Given I click the "Salon Travel" link
+    Then I should be able to see the TripAdvisor page
 
 @home
 Scenario: Navigate to the Business Travel @ About.com link
@@ -54,13 +50,5 @@ Scenario: Verify if all images load on homepage: Destination, Vacation, Register
     Then I should be able to see the image under the Tour Tips subtitle
 
 @home
-Scenario: Verify if all text load on homepage: Destination, Vacation, Register, Tour
+Scenario: Verify if all text loads on homepage: Destination, Vacation, Register, Tour
     Then I should be able to see the text under the Tour Tips subtitle
-
-
-
-
-
-
-
-
