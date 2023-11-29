@@ -17,23 +17,23 @@ Scenario: Find Special Item with Price
     Then I should be able to check the tour and price for the first row
 
 @home
-Scenario: Find The date
+Scenario: Find Jul 6, 2017 date on top right of the homepage
     Then I should be able to see the date 
 
 @home
-Scenario: Find the main page Banner
+Scenario: Find the "one cool summer in Aruba" main page Banner
     Then I should be able to see the page banner
 
 @home
-Scenario: Find the main Fetured Destination Image
+Scenario: Find the main Fetured Destination "Aruba" Image
     Then I should be able to see the Featured Destination
 
 @home
-Scenario: Find the HTML version image
+Scenario: see the HTML logo as the webpage version image
     Then I should be able to see the HTML version image
 
 @home
-Scenario: Find the Rent a car image
+Scenario: Find the Rent a car advertising on the left of the homepage
     Then I should be able to see the rent a car image
 
 @home 
@@ -42,29 +42,22 @@ Scenario: Check reference link "Salon Travel"
     Then I should be able to see trip advisor page
 
 @home
-Scenario: Verify image under the Destination subtitle
-    Then I should be able to see the image under the Destination subtitle
-
-@home
-Scenario: Verify image under the Vacation subtitle
-    Then I should be able to see the image under the Vacation subtitle
-
-@home
-Scenario: Verify image under the Register subtitle
-    Then I should be able to see the image under the Register subtitle
-
-@home
-Scenario: Verify image under the Tour Tips subtitle
-    Then I should be able to see the image under the Tour Tips subtitle
-
-@home
-Scenario: Verify text under the Tour Tips subtitle
-    Then I should be able to see the text under the Tour Tips subtitle
-
-@home
 Scenario: Navigate to the Business Travel @ About.com link
     Given I click the "Business Travel @ About.com" link
     Then I should be redirected to the Business Travel page
+
+@home
+Scenario: Verify if all images load on homepage: Destination, Vacation, Register, Tour
+    Then I should be able to see the image under the Destination subtitle
+    Then I should be able to see the image under the Vacation subtitle
+    Then I should be able to see the image under the Register subtitle
+    Then I should be able to see the image under the Tour Tips subtitle
+
+@home
+Scenario: Verify if all text load on homepage: Destination, Vacation, Register, Tour
+    Then I should be able to see the text under the Tour Tips subtitle
+
+
 
 
 
