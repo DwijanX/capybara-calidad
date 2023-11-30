@@ -197,73 +197,61 @@ expected_url = 'https://www.tripadvisor.in/'
 expect(page).to have_current_path(expected_url)
 end
 
-Then(/^the support page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
-  expect(page).to have_current_path(expected_url)
+
+Then(/^the "([^"]*)" page is shown$/) do |subtitle|
+  if subtitle=="Vacations"
+    expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+    expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
+  elsif subtitle=="Hotels"
+    expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+    expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
+  elsif subtitle=="Destinations"
+    expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+    expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
+  elsif subtitle=="Car Rentals"
+    expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+    expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
+  elsif subtitle=="contact"
+    expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+    expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
+  elsif subtitle=="Support"
+    expected_url = 'https://demo.guru99.com/test/newtours/support.php'
+    expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
+  elsif subtitle=="Cruises"
+    expected_url = 'https://demo.guru99.com/test/newtours/index.php'
+  end
+  if expected_url
+    expect(page).to have_current_path(expected_url)
+  end
+  if expected_Content
+    expect(page).to have_content(expected_Content)
+  end
 end
 
-Then(/^the contact page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
-  expect(page).to have_current_path(expected_url)
-  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
-
-end
-
-
-
-Then(/^the Car Rentals page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
-  expect(page).to have_current_path(expected_url)
-  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
-
-end
-
-Then(/^the Destinations page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
-  expect(page).to have_current_path(expected_url)
-  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
-
-end
-
-Then(/^the Hotels page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
-  expect(page).to have_current_path(expected_url)
-  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
-
-end
-
-Then(/^the Vacations page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/support.php'
-  expect(page).to have_current_path(expected_url)
-  expect(page).to have_content("This section of our web site is currently under construction.   Sorry for any inconvienece.")
-
-end
-
-
-Then(/^I should be able to see the image under the "([^"]*)" subtitle$/) do |arg|
-  if arg=="Destination"
+Then(/^I should be able to see the image under the "([^"]*)" subtitle$/) do |subtitle|
+  if subtitle=="Destination"
     xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[1]/img"
-  elsif arg=="Vacation"
+  elsif subtitle=="Vacation"
     xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[8]/td/table/tbody/tr/td[1]/img"
-  elsif arg=="Register"
+  elsif subtitle=="Register"
     xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[10]/td/table/tbody/tr/td[1]/img"
-  elsif arg=="Tour Tips"
+  elsif subtitle=="Tour Tips"
     xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[2]/tbody/tr[3]/td[1]/img"
   end
   find(:xpath,xpath).value
 end
 
-Then(/^I should be able to see the text under the "([^"]*)" subtitle$/) do |arg|
-  if arg=="Destination"
+Then(/^I should be able to see the text under the "([^"]*)" subtitle$/) do |subtitle|
+  if subtitle=="Destination"
     xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[2]/font"
     expected_text = "Find detailed information about your destination."
-  elsif arg=="Vacation"
+  elsif subtitle=="Vacation"
     xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[8]/td/table/tbody/tr/td[2]/font"
     expected_text = "Read about our featured vacation destinations."
-  elsif arg=="Register"
+  elsif subtitle=="Register"
     xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[10]/td/table/tbody/tr/td[2]/font"
     expected_text = "Register here to join Mercury Tours!"
-  elsif arg=="Tour Tips"
+  elsif subtitle=="Tour Tips"
     xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[2]/tbody/tr[3]/td[2]/font"
     expected_text = "Always carry a travel first aid kit with bandages, antacids, aspirin, bee sting wipes, and other basic necessities."
   end
@@ -284,10 +272,7 @@ When(/^I press the "Cruises" button$/) do
   find(:xpath,xpath).click
   end
 
-Then(/^the Cruises page is shown$/) do
-  expected_url = 'https://demo.guru99.com/test/newtours/index.php'
-  expect(page).to have_current_path(expected_url)
-end
+
 
 When(/^I select "(\d+)" passengers$/) do |passenger_count|
   xpath='/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[3]/td[2]/b/select'

@@ -12,11 +12,11 @@ Scenario: Click on the "SUPPORT" text on the top navbar element
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "SUPPORT" button
-    Then the support page is shown
+    Then the "Support" page is shown
 
 @links
 Scenario: Click on the "CONTACT" text on the top navbar element
     Given I enter my user and password
     When I press the "Sign-In" button
     When I press the "CONTACT" button
-    Then the contact page is shown
+    Then the "contact" page is shown
