@@ -182,17 +182,20 @@ xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/
 find(:xpath,xpath).value
 end
 
-Then('I should be able to see the HTML version image') do
-xpath= "/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/p[2]/img"
-find(:xpath,xpath).value
+
+
+Then(/^I should be able to see the "([^"]*)" image$/) do |image|
+  if image=="rent a car"
+    xpath= "/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/p[3]/img"
+  elsif image=="HTML version"
+    xpath= "/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/p[2]/img"
+
+  end
+  find(:xpath,xpath).value
+  
 end
 
-Then('I should be able to see the rent a car image') do
-xpath= "/html/body/div[2]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr/td/p[3]/img"
-find(:xpath,xpath).value
-end
-
-Then('I should be able to see trip advisor page') do
+Then('I should be at the trip advisor page') do
 expected_url = 'https://www.tripadvisor.in/'
 expect(page).to have_current_path(expected_url)
 end
@@ -219,9 +222,11 @@ Then(/^the "([^"]*)" page is shown$/) do |page|
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
   elsif page=="Cruises"
     expected_url = 'https://demo.guru99.com/test/newtours/index.php'
+
   end
   if expected_url
     expect(page).to have_current_path(expected_url)
+
   end
   if expected_Content
     expect(page).to have_content(expected_Content)
