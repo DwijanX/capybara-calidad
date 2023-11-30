@@ -198,26 +198,26 @@ expect(page).to have_current_path(expected_url)
 end
 
 
-Then(/^the "([^"]*)" page is shown$/) do |subtitle|
-  if subtitle=="Vacations"
+Then(/^the "([^"]*)" page is shown$/) do |page|
+  if page=="Vacations"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif subtitle=="Hotels"
+  elsif page=="Hotels"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif subtitle=="Destinations"
+  elsif page=="Destinations"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif subtitle=="Car Rentals"
+  elsif page=="Car Rentals"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif subtitle=="contact"
+  elsif page=="contact"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif subtitle=="Support"
+  elsif page=="Support"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif subtitle=="Cruises"
+  elsif page=="Cruises"
     expected_url = 'https://demo.guru99.com/test/newtours/index.php'
   end
   if expected_url
