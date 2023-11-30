@@ -240,25 +240,19 @@ Then(/^the Vacations page is shown$/) do
 end
 
 
-Then(/^I should be able to see the image under the Destination subtitle$/) do
-  xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[1]/img"
+Then(/^I should be able to see the image under the "([^"]*)" subtitle$/) do |arg|
+  if arg=="Destination"
+    xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[1]/img"
+  elsif arg=="Vacation"
+    xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[8]/td/table/tbody/tr/td[1]/img"
+  elsif arg=="Register"
+    xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[10]/td/table/tbody/tr/td[1]/img"
+  elsif arg=="Tour Tips"
+    xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[2]/tbody/tr[3]/td[1]/img"
+  end
   find(:xpath,xpath).value
 end
 
-Then(/^I should be able to see the image under the Vacation subtitle$/) do
-  xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[8]/td/table/tbody/tr/td[1]/img"
-  find(:xpath,xpath).value
-end
-
-Then(/^I should be able to see the image under the Register subtitle$/) do
-  xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[10]/td/table/tbody/tr/td[1]/img"
-  find(:xpath,xpath).value
-end
-
-Then(/^I should be able to see the image under the Tour Tips subtitle$/) do
-  xpath= "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[1]/table[2]/tbody/tr[3]/td[1]/img"
-  find(:xpath,xpath).value
-end
 
 Then(/^I should be able to see the text under the Destination subtitle$/) do
   xpath = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[6]/td/table/tbody/tr/td[2]/font"

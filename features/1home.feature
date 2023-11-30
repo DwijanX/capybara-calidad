@@ -42,12 +42,12 @@ Scenario: Navigate to the Business Travel @ About.com link
     Given I click the "Business Travel @ About.com" link
     Then I should be redirected to the Business Travel page
 
-@home
+@test
 Scenario: Verify if all images load on homepage: Destination, Vacation, Register, Tour
-    Then I should be able to see the image under the Destination subtitle
-    Then I should be able to see the image under the Vacation subtitle
-    Then I should be able to see the image under the Register subtitle
-    Then I should be able to see the image under the Tour Tips subtitle
+    Then I should be able to see the image under the "Destination" subtitle
+    Then I should be able to see the image under the "Vacation" subtitle
+    Then I should be able to see the image under the "Register" subtitle
+    Then I should be able to see the image under the "Tour Tips" subtitle
 
 @home
 Scenario: Verify if all text loads on homepage: Destination, Vacation, Register, Tour
