@@ -8,13 +8,16 @@ Before '@maximize' do
   page.driver.browser.manage.window.maximize
 end
 
-After('@homeLink') do |scenario|
+After do |scenario|
   if scenario.failed?
-    case scenario.name
-    when /Check reference link "Salon Travel"/
-      puts "The Salon Travel link failed to load."
-    when /Navigate to the Business Travel @ About.com link/
-      puts "The Business Travel @ About.com link redirection failed."
-    end
+    screenshot = "screenshot_#{Time.now.strftime('%Y%m%d%H%M%S')}.png"
+    page.save_screenshot(screenshot)
+    embed(screenshot, 'image/png', 'Screenshot of the error')
   end
 end
+#After('') do |scenario|
+
+#  logout_xpath = '/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[1]/a'
+#  find(:xpath, logout_xpath).click
+#  puts "After hook executed for scenario: #{scenario.name}"
+#end

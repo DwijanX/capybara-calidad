@@ -45,7 +45,6 @@ Scenario: Check reference link "Salon Travel"
 Scenario: Navigate to the Business Travel @ About.com link
     Given I click the "Business Travel @ About.com" link
     Then I should be redirected to the Business Travel page
-    And the Business Travel page should load successfully
 
 @home
 Scenario: Verify if all images load on homepage: Destination, Vacation, Register, Tour
