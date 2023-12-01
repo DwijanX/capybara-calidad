@@ -6,8 +6,6 @@ Feature: Mercury Tours Homepage Validation
 Background:
     Given I am on the Mercury Tours homepage
 
-
-
 @home
 Scenario: """ Find Special tours table with Prices:
 | Route                        | Price |
@@ -37,15 +35,17 @@ Scenario: See the HTML logo as the webpage version image
 Scenario: Find the Rent a Car advertising on the left of the homepage
     Then I should be able to see the "rent a car" image
 
-@home 
+@homeLink
 Scenario: Check reference link "Salon Travel"
     Given I click the "Salon Travel" link
     Then I should be at the trip advisor page
+    And the trip advisor page should load successfully
 
-@home
+@homeLink
 Scenario: Navigate to the Business Travel @ About.com link
     Given I click the "Business Travel @ About.com" link
     Then I should be redirected to the Business Travel page
+    And the Business Travel page should load successfully
 
 @home
 Scenario: Verify if all images load on homepage: Destination, Vacation, Register, Tour
