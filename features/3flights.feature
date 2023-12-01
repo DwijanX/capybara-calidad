@@ -16,14 +16,21 @@ Scenario: Find a flight with a registered user and go back home
     Then the Home screen is shown
 
 @flights
-Scenario: Press All Buttons before finding flights on Flight Details Page
-    And I select "3" passengers
-    And I select "London" as the departing location
-    And I select "New York" as the returning location
-    And I choose "Business class" as the service class
-    And I select "Unified Airlines" as the airline preference
+Scenario Outline: Press All Buttons before finding flights on Flight Details Page
+    And I select "<passengers>" passengers
+    And I select "<departing_location>" as the departing location
+    And I select "<returning_location>" as the returning location
+    And I choose "<service_class>" as the service class
+    And I select "<airline_preference>" as the airline preference
     And I press the "findFlights" button
     Then the result message is displayed
+
+Examples:
+  | passengers | departing_location | returning_location | service_class   | airline_preference  |
+  | 3          | London             | New York            | Business class   | Unified Airlines     |
+  | 2          | Paris              | Seattle         | Economy class    | Pangea Airlines      |
+  | 4          | New York           | London              | First class       | Blue Skies Airlines  |
+
 
 @flights
 Scenario: Find a flight with a registered user
