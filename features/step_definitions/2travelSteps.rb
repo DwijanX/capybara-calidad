@@ -197,7 +197,7 @@ end
 
 Then('I should be at the trip advisor page') do
 expected_url = 'https://www.tripadvisor.in/'
-expect(page).to have_current_path(expected_url)
+assert_current_path(expected_url)
 end
 
 
@@ -214,7 +214,7 @@ Then(/^the "([^"]*)" page is shown$/) do |page|
   elsif page=="Car Rentals"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
-  elsif page=="contact"
+  elsif page=="Contact"
     expected_url = 'https://demo.guru99.com/test/newtours/support.php'
     expected_Content="This section of our web site is currently under construction.   Sorry for any inconvienece."
   elsif page=="Support"
@@ -225,11 +225,11 @@ Then(/^the "([^"]*)" page is shown$/) do |page|
 
   end
   if expected_url
-    expect(page).to have_current_path(expected_url)
+    assert_current_path(expected_url)
 
   end
   if expected_Content
-    expect(page).to have_content(expected_Content)
+    assert_text(expected_Content)
   end
 end
 

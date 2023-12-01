@@ -17,12 +17,12 @@ Scenario: Find a flight with a registered user and go back home
 
 @flights
 Scenario: Press All Buttons on Flight Details Page
-    When I select "3" passengers
-    When I select "London" as the departing location
-    When I select "New York" as the returning location
-    When I choose "Business class" as the service class
-    When I select "Unified Airlines" as the airline preference
-    When I press the "findFlights" button
+    And I select "3" passengers
+    And I select "London" as the departing location
+    And I select "New York" as the returning location
+    And I choose "Business class" as the service class
+    And I select "Unified Airlines" as the airline preference
+    And I press the "findFlights" button
     Then the result message is displayed
 
 @flights

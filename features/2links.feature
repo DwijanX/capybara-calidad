@@ -16,4 +16,4 @@ Scenario: Click on the "SUPPORT" text on the top navbar element
 @links
 Scenario: Click on the "CONTACT" text on the top navbar element
     When I press the "CONTACT" button
-    Then the "contact" page is shown
+    Then the "Contact" page is shown

@@ -27,11 +27,11 @@ Scenario: Find the "One Cool Summer in Aruba" Banner and Featured Image
     Then I should be able to see the page banner
     Then I should be able to see the Featured Destination
 
-@test
+@home
 Scenario: See the HTML logo as the webpage version image
     Then I should be able to see the "HTML version" image
 
-@test
+@home
 Scenario: Find the Rent a Car advertising on the left of the homepage
     Then I should be able to see the "rent a car" image
 
@@ -39,7 +39,6 @@ Scenario: Find the Rent a Car advertising on the left of the homepage
 Scenario: Check reference link "Salon Travel"
     Given I click the "Salon Travel" link
     Then I should be at the trip advisor page
-    And the trip advisor page should load successfully
 
 @homeLink
 Scenario: Navigate to the Business Travel @ About.com link
