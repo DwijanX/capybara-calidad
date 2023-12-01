@@ -6,13 +6,18 @@ Feature: Mercury Tours Homepage Validation
 Background:
     Given I am on the Mercury Tours homepage
 
-@home
-Scenario: Check Specials Table on Homepage
-    Then I should see the specials table displayed
+
 
 @home
-Scenario: Find Special Item with Price
-    Given I should be able to see the specials table
+Scenario: """ Find Special tours table with Prices:
+| Route                        | Price |
+|------------------------------|-------|
+| Atlanta to Las Vegas          | $398  |
+| Boston to San Francisco       | $513  |
+| Los Angeles to Chicago        | $168  |
+| New York to Chicago           | $198  |
+| Phoenix to San Francisco      | $213  | """
+    Then I should see the specials table displayed
     Then I should be able to check the tour and price for the first row
 
 @home
