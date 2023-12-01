@@ -8,12 +8,18 @@ Before '@maximize' do
   page.driver.browser.manage.window.maximize
 end
 
-After do |scenario|
-  if scenario.failed?
-    screenshot = "screenshot_#{Time.now.strftime('%Y%m%d%H%M%S')}.png"
-    page.save_screenshot(screenshot)
-    embed(screenshot, 'image/png', 'Screenshot of the error')
-  end
+After do
+  page.driver.browser.manage.delete_all_cookies
+end
+
+Before do
+  @start_time = Time.now
+end
+
+After do
+  end_time = Time.now
+  duration = (end_time - @start_time).to_i
+  puts "Scenario took #{duration} seconds to execute."
 end
 #After('') do |scenario|
 

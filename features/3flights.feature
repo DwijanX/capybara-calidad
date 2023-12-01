@@ -16,7 +16,7 @@ Scenario: Find a flight with a registered user and go back home
     Then the Home screen is shown
 
 @flights
-Scenario: Press All Buttons on Flight Details Page
+Scenario: Press All Buttons before finding flights on Flight Details Page
     And I select "3" passengers
     And I select "London" as the departing location
     And I select "New York" as the returning location
